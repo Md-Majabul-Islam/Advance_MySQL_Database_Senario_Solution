@@ -10,7 +10,8 @@ write sql for the following queries:
 
 /*
 QUESTION-01:
-insert the information in the database specifying that a new student named robi in cse department with id 60, registered the course    database management system with course_id cse-320.
+insert the information in the database specifying that a new student named robi in cse department with id 60, 
+registered the course database management system with course_id cse-320.
 */
 insert into student(student_id, student_name, student_department)
 values (60,'robi','cse');
@@ -22,10 +23,10 @@ insert into registered(student_id, course_id)
 values (60,'cse-320');
 
 
-
 /*
 QUESTION-02:
-find the students of eee department and their courses.list the records in alphabetical order according to the names of the       students.
+find the students of eee department and their courses.list the records in alphabetical order according 
+to the names of the students.
 */
 select student_name from student
 join registered on student.student_id = registered.student_id
@@ -34,23 +35,18 @@ where student_department = 'eee'
 order by student_name asc;
 
 
-
-
 /*
 QUESTION-03:
 find how many students registered their courses in each department.
 */
-
 select student_department, count(distinct student.student_id)from student
 join registered on student.student_id = registered.student_id
 group by student_department;
 
 
-
-
 /*
 QUESTION-04:
-Update the title of course "man" to "kan".
+Update the title of course "fundamental_civil" to "security in computing".
 */
 UPDATE course
 SET course_title = 'security in computing'
