@@ -1,0 +1,40 @@
+/*
+                  Railway-Scenario-1
+consider the following relational schema of railway database:
+train (name(primary_key),start,destination)
+ticket (pnr_no(primary_key),start,destination,fare)
+passenger (name(primary_key),address,pnr_no)
+write sql for the following queries:
+*/
+
+
+/*
+QUESTION-01:
+list the names of passengers who are travelling from the start khulna to the destination saidpur station of the train. 
+*/
+SELECT DISTINCT passenger.name
+FROM passenger
+JOIN ticket ON passenger.pnr_no = ticket.pnr_no
+WHERE ticket.start = 'khulna' AND ticket.destination = 'saidpur';
+
+
+
+/*
+QUESTION-02:
+change the destination address of "abc_express" to "rangpur".
+*/
+UPDATE train
+SET destination = 'rangpur'
+WHERE name = 'abc_express';
+
+
+
+/*
+QUESTION-03:
+find the name of all passengers whose address includes the substring "rangpur".
+*/
+SELECT DISTINCT name
+FROM passenger
+WHERE address LIKE '%rangpur%';
+
+
