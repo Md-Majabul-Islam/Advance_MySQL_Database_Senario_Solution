@@ -8,6 +8,54 @@ write sql for the following queries:
 */
 
 
+#create railway_database;
+CREATE DATABASE railway_database;
+USE railway_database;
+#create train table and insert values
+CREATE TABLE train(
+    name varchar(25) primary key,
+    start varchar(25),
+    destination varchar(25)
+);
+INSERT INTO train(name, start, destination)
+VALUES('rupsa express','khulna','saidpur'),
+      ('simantw express','khulna','parbatipur'),
+      ('abc_express','rajshahi','saidpur'),
+      ('rangpur express','khulna','saidpur'),
+      ('chilati express','isurdi','neelphamari');
+
+
+#create ticket table and insert values
+CREATE TABLE ticket(
+    pnr_no varchar(25)primary key,
+    start varchar(25),
+    destination varchar(25),
+    fare int
+);
+INSERT INTO ticket(pnr_no, start, destination, fare)
+VALUES('abc123','khulna','saidpur',1450),
+      ('abc234','khulna','parbatipur',440),
+      ('def123','rajshahi','saidpur',500),
+      ('ssc738','khulna','saidpur',810),
+      ('man907 ','rangpur','neelphamari',350);
+
+
+#create passenger table and insert values
+CREATE TABLE passenger(
+    name varchar(25)primary key,
+    address varchar(25),
+    pnr_no varchar(25)
+);
+INSERT INTO passenger(name, address, pnr_no)
+VALUES('majebul','dhaka','abc123'),
+      ('sadin','rajshahi','abc234'),
+      ('babu','gopalganj','def123'),
+      ('razzak','baraibari','ssc738'),
+      ('kazi','gangachara','man907'),
+      ('rajebul','rangpur','abc123'),
+      ('sandin','rangpur','abc234');
+
+
 /*
 QUESTION-01:
 list the names of passengers who are travelling from the start khulna to the destination saidpur station of the train. 
